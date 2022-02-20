@@ -9,6 +9,24 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <%= link_to 'Nagano Cake', root_path %>
+
+  <%= link_to 'About', about_path %>
+
+  <% if customer_signed_in? %>
+
+    <%= link_to 'My page', public_customers_my_page_path %>
+
+    <%= link_to 'Log out', destroy_customer_session_path, method: :delete %>
+
+  <% else %>
+
+   <%= link_to 'Sign in', new_customer_registration_path %>
+
+   <%= link_to 'Log in', new_customer_session_path %>
+
+  <% end %>
+
   <body>
     <%= yield %>
   </body>

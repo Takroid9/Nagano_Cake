@@ -1,0 +1,26 @@
+<h1>Public::Customers#edit</h1>
+
+<div id="error_explanation">
+
+  <% if @customer.errors.any? %>
+    <%= @customer.errors.count %> errors prohibited this name from being saved:
+    <% @customer.errors.full_messages_for(:name).each do |message| %>
+      <%= message %>
+    <% end %>
+  <% end %>
+
+</div>
+
+<%= form_with model: @customer, local: true do |f| %>
+
+  <div class="form-group">
+    <label for = "customer-name">Name</label>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update customer" %>
+  </div>
+
+<% end %>
+<p>Find me in app/views/public/customers/edit.html.erb</p>
